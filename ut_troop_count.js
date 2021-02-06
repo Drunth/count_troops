@@ -5,14 +5,26 @@ if (top.frames.length > 1) {
 } else {
   var doc = document
 };
-if (!doc.URL.match('mode=units')) {
-  UI.InfoMessage('Du musst dich auf der Verteidigungs-/Unterstützungs-Übersicht befinden!', 3000, true)
+if (!doc.URL.match('mode=units') && !doc.URL.match('mode=commands&type=support')) {
+  UI.InfoMessage('Du musst dich auf der Verteidigungs-/Unterstützungs-Übersicht oder Befehle-/Unterstützungs Seite befinden!', 3000, true)
 } else {
   ADS_Unterstuetzung_zaehlen(doc)
 };
+var page = ''
+if (doc.URL.match('mode=units')) {
+  page = 'units'
+}
 function ADS_Unterstuetzung_zaehlen (doc) {
   var output = ''
-  var world = ($('#units_table thead tr th:eq(7) img').attr('src').indexOf('unit_spy') == -1)
+  var world = ''
+  var troopTable = ''
+  if (page == 'units') {
+    world = ($('#units_table thead tr th:eq(7) img').attr('src').indexOf('unit_spy') == -1)
+    troopTable = $('#units_table tr.row_a, #units_table tr.row_b')
+  } else {
+    world = ($('#commands_table tr th:eq(6) img').attr('src').indexOf('unit_spy') == -1)
+    troopTable = $('#commands_table tr.row_ax, #commands_table tr.row_bx')
+  }
   var num_spear = 0
   var num_sword = 1
   var num_archer = (world ? 3 : -999)
@@ -24,12 +36,16 @@ function ADS_Unterstuetzung_zaehlen (doc) {
   var sum_heavy = 0
   var sum_spy = 0
   var obj = new Object()
-  $('#units_table tr.row_a, #units_table tr.row_b').each(function (a) {
+  troopTable.each(function (a) {
     acc = ''
-    $(this).find('a').each(function (b) {
-      if ($(this).attr('href').search(/info_player&/) != -1) acc = $(this).html()
+    if (page == 'units') {
+      $(this).find('a').each(function (b) {
+        if ($(this).attr('href').search(/info_player&/) != -1) acc = $(this).html()
+      })
+    } else {
+      acc = $(this).find('td a').eq(0).text()
     }
-    )
+
     if (acc != '') {
       var count = obj[acc]
       if (obj[acc] == undefined) {
