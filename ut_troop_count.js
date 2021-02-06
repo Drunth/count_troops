@@ -5,13 +5,17 @@ if (top.frames.length > 1) {
 } else {
   var doc = document
 };
+console.log('doc')
+console.log(doc)
 if (!doc.URL.match('mode=units') && !doc.URL.match('mode=commands&type=support')) {
   UI.InfoMessage('Du musst dich auf der Verteidigungs-/Unterstützungs-Übersicht oder Befehle-/Unterstützungs Seite befinden!', 3000, true)
 } else {
   ADS_Unterstuetzung_zaehlen(doc)
 };
 var page = ''
+console.log(doc.URL.match('mode=units'))
 if (doc.URL.match('mode=units')) {
+  console.log('testing')
   page = 'units'
 }
 function ADS_Unterstuetzung_zaehlen (doc) {
@@ -70,7 +74,7 @@ function ADS_Unterstuetzung_zaehlen (doc) {
   } else if (doc.URL.match('support_detail')) {
     output += '<h5>Unterstützungen erhalten von:</h5>'
   } else if (doc.URL.match('mode=commands&type=support')) {
-    output += '<h5>Unterstützungen für:</h5>' 
+    output += '<h5>Unterstützungen für:</h5>'
   }
   var counter = 0
   var sum = 0
