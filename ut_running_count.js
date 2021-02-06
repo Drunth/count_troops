@@ -117,7 +117,7 @@ function ADS_Unterstuetzung_zaehlen (doc) {
     if (world) output += '<span style="margin-left:10px;">Bogen: ' + sum_archer + '</span> <br/>'
     output += '<span style="margin-left:10px;">Skav: ' + sum_heavy + '</span> <br/>'
     output += '<span style="margin-left:10px;">Spy: ' + sum_spy + '</span></div>'
-    output += '<span style="color: grey">(Anzeige pro Seite)</span>'
+    output += '<span style="color: grey;">(Anzeige pro Seite)</span>'
   } if ($('#ADS_Display').length === 0) {
     $('.maincell').append("<div id='ADS_Display' style='position: fixed; top: 51px; left: 20px; border-radius: 8px; border: 2px #804000 solid; background-color: #F1EBDD'><div id='inline_popup_menu' style='cursor: auto; text-align:center;'>" + game_data.player.name + ' (' + $('#serverDate').text() + ")</div><div style='padding: 15px 10px 5px 10px;'><table id='ADS_Display_Main' style='vertical-align:middle;'></table><br><a onclick='$(\"#ADS_Display\").remove();' style='cursor: pointer;'>Schließen</a></div></div>")
   } else {

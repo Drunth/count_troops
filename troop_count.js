@@ -70,7 +70,7 @@ function ADS_Truppen_zaehlen (doc) {
   if (village_count > 0) {
     var output = ''
     for (var i = 0; i < units_count; i++) {
-      output += "<tr><td style='color:blue; font-weight: bold;'>  " + units[i][1] + "   </td><td style='color:red; text-align:right'>" + troops[i] + '</td></tr>'
+      output += "<tr><td style='color:blue; font-weight: bold'>  " + units[i][1] + "   </td><td style='color:red; text-align:right'>" + troops[i] + '</td></tr>'
     }
     if ($('#ADS_Display') !== undefined) {
       $('.maincell').append("<div id='ADS_Display' style='position: fixed; top: 51px; left: 20px; border-radius: 8px; border: 2px #804000 solid; background-color: #F1EBDD'><div id='inline_popup_menu' style='cursor: auto; text-align:center;'>Truppenübersicht: " + art + "</div><div style='padding: 15px 10px 5px 10px;'><table id='ADS_Display_Main' style='vertical-align:middle;'></table><br><a onclick='$(\"#ADS_Display\").remove();' style='cursor: pointer;'>Schließen</a></div></div>")
