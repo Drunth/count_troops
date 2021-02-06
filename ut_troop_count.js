@@ -15,7 +15,7 @@ if (doc.URL.match('mode=units')) {
   page = 'units'
 }
 function ADS_Unterstuetzung_zaehlen (doc) {
-  var output = ''
+  var output = '<br/>'
   var world = ''
   var troopTable = ''
   if (page == 'units') {
