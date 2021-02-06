@@ -67,10 +67,10 @@ function ADS_Unterstuetzung_zaehlen (doc) {
   })
   if (doc.URL.match('away_detail')) {
     output += '<h5>Stammesdeff eingesetzt bei:</h5>'
-    word = 'Eingesetzt'
   } else if (doc.URL.match('support_detail')) {
     output += '<h5>Unterstützungen erhalten von:</h5>'
-    word = 'Erhalten'
+  } else if (doc.URL.match('mode=commands&type=support')) {
+    output += '<h5>Unterstützungen für:</h5>' 
   }
   var counter = 0
   var sum = 0
