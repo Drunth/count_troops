@@ -43,7 +43,7 @@ function ADS_Unterstuetzung_zaehlen (doc) {
         if ($(this).attr('href').search(/info_player&/) != -1) acc = $(this).html()
       })
     } else {
-      acc = $(this).find('td a').eq(0).text()
+      acc = $(this).find('td a').eq(0).text().split('Unterstützung für ').pop()
     }
 
     if (acc != '') {
