@@ -12,7 +12,7 @@ if (!doc.URL.match('mode=units')) {
 };
 function ADS_Unterstuetzung_zaehlen (doc) {
   var output = ''
-  var world = ($('#units_table thead tr th:eq(5) img').attr('src').indexOf('unit_spy') == -1)
+  var world = ($('#units_table thead tr th:eq(6) img').attr('src').indexOf('unit_spy') == -1)
   var num_spear = 0
   var num_sword = 1
   var num_archer = (world ? 3 : -999)
