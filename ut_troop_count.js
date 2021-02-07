@@ -13,8 +13,9 @@ if (!doc.URL.match('mode=units') && !doc.URL.match('mode=commands&type=support')
   ADS_Unterstuetzung_zaehlen(doc)
 };
 var page = ''
-console.log(doc.URL.match('mode=units'))
-if (doc.URL.match('mode=units')) {
+console.log(doc.URL)
+console.log(window.location.href)
+if (window.location.href.indexOf('mode=units') > -1) {
   console.log('testing')
   page = 'units'
 }
