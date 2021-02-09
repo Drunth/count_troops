@@ -5,20 +5,15 @@ if (top.frames.length > 1) {
 } else {
   var doc = document
 };
-console.log('doc')
-console.log(doc)
+var page = ''
+if (doc.URL.match('mode=units') > -1) {
+  page = 'units'
+}
 if (!doc.URL.match('mode=units') && !doc.URL.match('mode=commands&type=support')) {
   UI.InfoMessage('Du musst dich auf der Verteidigungs-/Unterstützungs-Übersicht oder Befehle-/Unterstützungs Seite befinden!', 3000, true)
 } else {
   ADS_Unterstuetzung_zaehlen(doc)
 };
-var page = ''
-console.log(doc.URL)
-console.log(window.location.href)
-if (window.location.href.indexOf('mode=units') > -1) {
-  console.log('testing')
-  page = 'units'
-}
 function ADS_Unterstuetzung_zaehlen (doc) {
   var output = '<br/>'
   var world = ''
