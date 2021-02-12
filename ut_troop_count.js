@@ -6,7 +6,7 @@ if (top.frames.length > 1) {
   var doc = document
 };
 var page = ''
-if (doc.URL.match('mode=units') > -1) {
+if (doc.URL.match('mode=units')) {
   page = 'units'
 }
 if (!doc.URL.match('mode=units') && !doc.URL.match('mode=commands&type=support')) {
